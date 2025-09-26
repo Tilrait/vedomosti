@@ -1,0 +1,29 @@
+{
+  "name": "vedomosti",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "lint": "oxlint",
+    "format": "prettier --write .",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.5.1",
+    "oxlint": "^1.16.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.3",
+    "fast-xml-parser": "^5.2.5",
+    "hono": "^4.9.8",
+    "tsx": "^4.20.5"
+  }
+}
