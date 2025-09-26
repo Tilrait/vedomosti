@@ -4,6 +4,11 @@ export type RssItem = {
   category: string;
   description?: string;
   pubDate: string;
+  enclosure?: {
+    url: string;
+    width?: number;
+    height?: number;
+  };
 };
 
 export type NewsItem = Required<Omit<RssItem, "pubDate">> & {
