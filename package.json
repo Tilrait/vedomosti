@@ -25,6 +25,7 @@
     "fast-xml-parser": "^5.2.5",
     "hono": "^4.9.8",
     "html-parser.ts": "^1.9.1",
+    "jsdom": "^27.0.0",
     "tsx": "^4.20.5"
   }
 }

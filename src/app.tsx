@@ -2,11 +2,10 @@ import { Hono } from "hono";
 import { type FC } from "hono/jsx";
 import { findNewsByCategory } from "./services/news.service.js";
 import { findCategories } from "./services/category.service.js";
-
 import * as types from "./types.js";
 
 // 2 балла за программный парсинг категорий со страницы с информацией
-const CATEGORIES = ["business", "auto"];
+const CATEGORIES = await findCategories();
 
 const NewsPage: FC<{ news: types.NewsItem[] }> = (props) => {
   return (
@@ -55,7 +54,7 @@ app.get("/api/news", async function getNews(c) {
     return c.json({ message: "Не задана категория" });
   }
 
-  if (!CATEGORIES.includes(category)) {
+  if (!CATEGORIES.find(cat => cat.category === category )) {
     c.status(404);
     return c.json({ message: "Категория не найдена (нет в списке)" });
   }
