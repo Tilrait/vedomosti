@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { buildUrl } from "../src/index.js";
+import { buildUrl } from "../src/lib.ts";
 
 test('correct build urls without query parameters', () => {
     const input = { category: "business" }

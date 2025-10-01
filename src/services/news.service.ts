@@ -11,16 +11,17 @@ type FindNewsProps = {
 export async function findNewsByCategory({ category, limit, offset }: FindNewsProps) {
     const newsXml = await fetchNews(category)
 
-    const xmlParser = new XMLParser()
+    const xmlParser = new XMLParser({ignoreAttributes: false, attributeNamePrefix: "" })
     const parsedObject = xmlParser.parse(newsXml)
-
+    
     const news: types.NewsItem[] = parsedObject.rss.channel.item
         .map((item: types.RssItem): types.NewsItem => ({
             title: item.title,
             link: item.link,
             category: item.category,
             description: item.description ?? "",
-            published_at: item.pubDate
+            published_at: item.pubDate,
+            enclosure: item.enclosure ?? { url: ''}
         }))
 
     if (limit && limit > 0) {
