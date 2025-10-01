@@ -4,7 +4,7 @@ import * as types from "../types.js";
 export async function findCategories() {
   const categoryHTML = await fetchInfo();
 
-    console.log(``)
+    
 }
 
 findCategories()
