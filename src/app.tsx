@@ -99,15 +99,12 @@ app.get('/news', async (c) => {
 
     const { category, limit, offset } = c.req.query()
 
-    if (!category) {
-        return c.html(<p>Page not found</p>)
-    }
-
-    const news = await findNewsByCategory({
-        category,
-        limit: Number(limit),
-        offset: Number(offset)
-    })
+  if (!category || !CATEGORIES.includes(category)) {
+    return c.html(<p>Page not found</p>);
+  }
+//
+  const validatedLimit = limit ? Number(limit) : undefined; // NaN, число, undefined
+  const validatedOffset = offset ? Number(offset) : 0; // Число, NaN
 
     return c.html(<NewsPage news={news} />)
 })
