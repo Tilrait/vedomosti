@@ -1,6 +1,8 @@
 import { Hono } from "hono";
 import { type FC } from "hono/jsx";
 import { findNewsByCategory } from "./services/news.service.js";
+import { findCategories } from "./services/category.service.js";
+
 import * as types from "./types.js";
 
 // 2 балла за программный парсинг категорий со страницы с информацией
