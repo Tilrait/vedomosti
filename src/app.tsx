@@ -13,8 +13,6 @@ const NewsPage: FC<{ news: types.NewsItem[] }> = (props) => {
       <main>
         {props.news.map((item) => (
           <article>
-            <h3>{item.title}</h3>
-            <button>Delete me</button>
             {item.enclosure && item.enclosure.url && (
               <img
                 src={item.enclosure.url}
